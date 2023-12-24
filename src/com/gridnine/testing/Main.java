@@ -6,10 +6,8 @@ import com.gridnine.testing.service.impl.FlightFilterServiceImpl;
 import java.util.List;
 
 public class Main {
-
-
-    public static <Flight> void main(String[] args) {
-        List<com.gridnine.testing.Flight> flights = FlightBuilder.createFlights();
+    public static void main(String[] args) {
+        List<Flight> flights = FlightBuilder.createFlights();
 
 
         FlightFilterService departureToTheCurrentPointInTime = new FlightFilterServiceImpl();
@@ -25,8 +23,8 @@ public class Main {
                 + filteredFlightsByArrivalBeforeDeparture);
 
         FlightFilterService flightsWhereTimeOnTheGroundExceedsTwoHours = new FlightFilterServiceImpl();
-        List<Flight> groundExceedsTwoHours =
-                (List<Flight>) flightsWhereTimeOnTheGroundExceedsTwoHours.flightsWhereTimeOnTheGroundExceedsTwoHours(flights);
+        List<Flight> groundExceedsTwoHours;
+        groundExceedsTwoHours = flightsWhereTimeOnTheGroundExceedsTwoHours.flightsWhereTimeOnTheGroundExceedsTwoHours(flights);
         System.out.println("Перелеты, где общее время, проведённое на земле, превышает два часа: "
                 + groundExceedsTwoHours);
     }
